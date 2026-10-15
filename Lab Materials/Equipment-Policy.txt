@@ -1,0 +1,33 @@
+NORTHSTAR EQUIPMENT POLICY
+Synthetic training document for the Microsoft Copilot Studio course. Northstar is a fictional company.
+Version 2.0. Owner: Northstar IT Service Desk.
+
+1. Standard equipment
+Every employee is entitled to the following standard equipment:
+- Laptop: one Northstar Standard Laptop (14-inch, 16 GB memory).
+- Monitor: one 24-inch monitor. A second 24-inch monitor is available to employees whose role is listed in section 4.
+- Headset: one wired or wireless headset with a microphone.
+Requests for any other item, such as a printer, tablet, docking station or ergonomic chair, are exceptions and are reviewed by the IT Service Desk manager.
+
+2. Replacement cycle
+Laptops are replaced every four years from the date of issue. Monitors are replaced every six years. Headsets are replaced every two years.
+An employee may request an early replacement when equipment is damaged or no longer works reliably. The request must state the equipment type, the office and a short description of the problem.
+
+3. Damaged or lost equipment
+Damaged equipment is replaced at no cost to the employee. The damaged item must be returned to the IT Service Desk when the replacement is collected.
+Lost equipment must be reported to the IT Service Desk within two working days. A lost laptop is also reported to the Security team, because it may contain company data.
+
+4. Second monitor
+A second monitor is provided to employees in the Finance, Engineering and Design teams. Employees in other teams may request a second monitor as an exception; the request must include the reason.
+
+5. Offices and collection
+Equipment is issued at the Vancouver and Toronto offices only. Employees collect equipment from the IT Service Desk counter in their office. The service desk sends an email when the item is ready for collection, normally within five working days of approval.
+This policy does not cover shipping to home addresses or to other countries.
+
+6. Requests and approval
+Employees request equipment through the Northstar Helpdesk agent or the IT Service Desk. A request is complete when it states the equipment type, the office and the reason.
+Standard equipment within the entitlement in section 1 is approved by the IT Service Desk. Exceptions and second monitors outside section 4 are approved by the IT Service Desk manager.
+Submitting a request does not mean it is approved. The Helpdesk agent cannot approve requests, commit spending or promise a delivery date.
+
+7. Leaving Northstar
+All equipment is returned to the IT Service Desk on or before the employee's last working day.

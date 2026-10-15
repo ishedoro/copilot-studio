@@ -1,0 +1,21 @@
+SessionID,StartTime,Channel,HandledBy,Engaged,Outcome,RequestResult,CSAT (1-5),Reviewer note
+S01,2026-10-05 09:12,Teams,Equipment request,Yes,Resolved,Submitted,5,
+S02,2026-10-05 09:40,Teams,Knowledge,Yes,Resolved,,4,
+S03,2026-10-05 10:02,Teams,Knowledge,Yes,Resolved,,,
+S04,2026-10-05 10:15,Teams,Equipment request,Yes,Resolved,Submitted,,
+S05,2026-10-05 11:30,Teams,,No,Unengaged,,,
+S06,2026-10-05 13:05,Teams,Equipment request,Yes,Resolved,Submitted,5,
+S07,2026-10-05 13:44,Teams,Knowledge,Yes,Resolved,,,
+S08,2026-10-05 14:20,Teams,Equipment request,Yes,Resolved,Cancelled by user,,
+S09,2026-10-06 08:55,Teams,Equipment request,Yes,Resolved,Submitted,4,
+S10,2026-10-06 09:31,Teams,Knowledge,Yes,Resolved,,,
+S11,2026-10-06 10:10,Teams,Equipment request,Yes,Resolved,Submitted,,
+S12,2026-10-06 10:48,Teams,Equipment request,Yes,Resolved,Submitted,5,
+S13,2026-10-06 11:22,Teams,Equipment request,Yes,Abandoned,,,User asked 'what's the status of my laptop request?' and the Equipment request topic started a new request.
+S14,2026-10-06 12:05,Teams,Equipment request,Yes,Abandoned,,,User typed 'docking station'; the equipment question repeated three times and the user left.
+S15,2026-10-06 13:30,Teams,Equipment request,Yes,Resolved,Failed,1,Flow failed (Create item: invalid choice value for Office) but the agent replied 'Your request has been submitted'.
+S16,2026-10-06 14:02,Teams,Knowledge,Yes,Escalated,,2,User asked about headset replacement; agent said it had no information although the policy covers it. User asked for a person.
+S17,2026-10-06 14:40,Teams,Knowledge,Yes,Resolved,,,
+S18,2026-10-07 09:05,Teams,Equipment request,Yes,Resolved,Submitted,,
+S19,2026-10-07 09:50,Teams,,No,Unengaged,,,
+S20,2026-10-07 10:30,Teams,Equipment request,Yes,Resolved,Submitted,4,
