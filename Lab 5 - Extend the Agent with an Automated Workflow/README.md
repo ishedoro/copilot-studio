@@ -20,7 +20,7 @@ Roughly **90 minutes**.
 ## Prerequisites
 
 - The **Northstar Helpdesk** agent with the Lab 4 changes (Equipment type entity, `Global.Office`, `RequestSummary`)
-- The URL of the training SharePoint site, from your instructor, for example `https://northstartraining.sharepoint.com/sites/ITServiceDesk`
+- The training SharePoint site: `https://iisadmin3innovationinsoftwa.sharepoint.com/sites/cps1015-lab`
 - A list named **EquipmentRequests** on that site. Your instructor has created it (see `Lab Materials/List-Schema.md`). If you use your own tenant, create it yourself from that file first.
 
 ### Before you start – check the list
