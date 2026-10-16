@@ -25,7 +25,7 @@ All six labs build the same agent, **Northstar Helpdesk**. Keep your agent and y
 | `Equipment-Policy.txt` | Lab 1 onwards – knowledge source |
 | `IT-Support-FAQ.txt` | Lab 1 onwards – knowledge source |
 | `Lab-2-Test-Record.md` | Lab 2 – test record (also reused in Lab 6) |
-| `List-Schema.md` | Lab 5 – setting up the EquipmentRequests SharePoint list (instructor, before class) |
+| `List-Schema.md` | Lab 5 – the columns of your own EquipmentRequests list (Part 0) |
 | `Sample-Sessions.csv` | Lab 6 – 20 sample pilot sessions for the analytics calculations |
 | `Test-Set.csv` | Lab 6 – 20 evaluation questions with expected responses |
 

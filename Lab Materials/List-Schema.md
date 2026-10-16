@@ -1,11 +1,11 @@
 # EquipmentRequests list
 
-The instructor (or, in your own tenant, you) creates this SharePoint list before Lab 5, on a training site such as `https://<tenant>.sharepoint.com/sites/ITServiceDesk`.
+Each learner creates their own copy of this list in Lab 5, Part 0, on the training site `https://iisadmin3innovationinsoftwa.sharepoint.com/sites/cps1015-lab`. The list is named `EquipmentRequests-` followed by the learner's initials, for example `EquipmentRequests-ID`.
 
 ## Create the list
 
 1. On the site, select **+ New** → **List** → **Blank list**.
-2. Name: `EquipmentRequests`. Select **Create**.
+2. Name: `EquipmentRequests-` followed by your initials. Select **Create**.
 3. Add the columns below with **+ Add column**.
 
 | Column | Type | Settings |
@@ -20,6 +20,6 @@ The built-in **ID** column is the request number returned to the agent. **Create
 
 ## Permissions
 
-Every learner needs **Contribute** (Edit) permission on the list, because the flow's SharePoint connection uses the learner's own account. For a large class, create one list per learner (for example `EquipmentRequests-07`) and tell learners which one to use.
+Every learner needs to be a member of the site (Edit permission), so they can create their own list. The flow's SharePoint connection uses the learner's own account, so each learner writes only to the list they created.
 
 This is a training design. A production design would also record the requester's identity from sign-in, check for duplicate requests and restrict who can read other people's requests.

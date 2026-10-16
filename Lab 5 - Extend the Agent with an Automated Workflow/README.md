@@ -1,6 +1,6 @@
 # Lab 5 – Extend the Agent with an Automated Workflow
 
-In this lab the Northstar Helpdesk agent starts doing real work. You build an agent flow called **Create equipment request**. It creates an item in the **EquipmentRequests** SharePoint list, emails the requester, and returns the new item's ID and a status to the agent. You then call the flow from the Yes branch of the Equipment request topic, so a confirmed request produces a real record and a real request ID.
+In this lab the Northstar Helpdesk agent starts doing real work. You build an agent flow called **Create equipment request**. It creates an item in your own **EquipmentRequests** SharePoint list, emails the requester, and returns the new item's ID and a status to the agent. You then call the flow from the Yes branch of the Equipment request topic, so a confirmed request produces a real record and a real request ID.
 
 ## Learning Objectives
 
@@ -21,14 +21,44 @@ Roughly **90 minutes**.
 
 - The **Northstar Helpdesk** agent with the Lab 4 changes (Equipment type entity, `Global.Office`, `RequestSummary`)
 - The training SharePoint site: `https://iisadmin3innovationinsoftwa.sharepoint.com/sites/cps1015-lab`
-- A list named **EquipmentRequests** on that site. Your instructor has created it (see `Lab Materials/List-Schema.md`). If you use your own tenant, create it yourself from that file first.
+- Permission to create a list on that site. Your instructor has added the class to the site's members.
 
-### Before you start – check the list
+Everyone in the class works on the same site, so each learner creates their own list. If several agents write to one list, other learners' test items and changes get mixed in with yours and values seem to disappear.
+
+---
+
+## Part 0: Create Your Own List
+
+### Step 0.1 – Create the list
 
 1. Open the SharePoint site in a new browser tab.
-2. Open **EquipmentRequests**.
-3. Select **+ New**, create a test item (Title `Test`, EquipmentType **Monitor**, Office **Toronto**, RequestReason `test`), and save it.
-4. Delete the test item.
+2. Select **+ New** → **List** → **Blank list**.
+3. Name the list `EquipmentRequests-` followed by your initials, for example `EquipmentRequests-ID`. Select **Create**.
+4. Use this name wherever the lab says **your list**.
+
+**Expected result:** An empty list with your initials in its name. It has one column, **Title**.
+
+### Step 0.2 – Add the columns
+
+Select **+ Add column** for each row, choose the type, and set it as shown. Type the choices exactly as written, one per line.
+
+| Column | Type | Settings |
+|---|---|---|
+| EquipmentType | Choice | Choices: `Laptop`, `Monitor`, `Headset`; **Require that this column contains information** on |
+| Office | Choice | Choices: `Vancouver`, `Toronto`; required |
+| RequestReason | Multiple lines of text | Required |
+| Status | Choice | Choices: `Submitted`, `Pending approval`, `Approved`, `Rejected`; default value `Submitted` |
+
+Leave **Can add values manually** off on the choice columns, so the flow can only write the values above.
+
+**Expected result:** The list shows Title, EquipmentType, Office, RequestReason and Status.
+
+> Settings such as **Require that this column contains information** and **Default value** are under **More options** in the column panel.
+
+### Step 0.3 – Check the list
+
+1. Select **+ New**, create a test item (Title `Test`, EquipmentType **Monitor**, Office **Toronto**, RequestReason `test`), and save it.
+2. Delete the test item.
 
 **Expected result:** You can create and delete items. If you cannot, tell the instructor now; the flow will fail with the same permission error.
 
@@ -102,7 +132,7 @@ Keep the agent's tab open. You return to it in Part 6.
 3. If asked to sign in, sign in with your training account to create the connection.
 4. Set:
    - **Site Address**: select the training site, or choose **Enter custom value** and paste the site URL.
-   - **List Name**: **EquipmentRequests**
+   - **List Name**: your list, for example **EquipmentRequests-ID**. Check that it is your list and not another learner's.
 5. Fill the fields. Click in each box and use the **dynamic content** (lightning) icon to pick trigger inputs:
 
    | Field | Value |
@@ -192,7 +222,7 @@ If **Create item** fails, the agent must say so.
    - RequesterEmail: your training account's email address
 3. Select **Run flow**.
 4. When it finishes, open each step and check the green checkmarks.
-5. Open the SharePoint list and find the new item. Open your mailbox (Outlook on the web) and find the email.
+5. Open your list and find the new item. Open your mailbox (Outlook on the web) and find the email.
 
 **Expected result:** One new list item, one email, and the run history shows RequestID matching the item's ID.
 
@@ -250,12 +280,12 @@ If **Create item** fails, the agent must say so.
 2. Send `I need a new headset for Vancouver`, give a reason, answer **Yes**.
 3. Watch the activity map: the Tool node should run once.
 
-**Expected result:** The agent replies with `NS-` and a number. The list has a matching item and you have received an email.
+**Expected result:** The agent replies with `NS-` and a number. Your list has a matching item and you have received an email.
 
 ### Step 7.2 – Cancel path
 
 1. Select **New test session**. Start a request and answer **No**.
-2. Check the list.
+2. Check your list.
 
 **Expected result:** No new item.
 
@@ -286,6 +316,7 @@ After **Send an email (V2)**, add **Post message in a chat or channel** (Microso
 
 ## Completion Checklist
 
+- [ ] Your own list `EquipmentRequests-<initials>` with the four columns
 - [ ] Flow **Create equipment request** with four Text inputs
 - [ ] **Create item** writes all fields; **Send an email (V2)** uses dynamic content
 - [ ] **Respond to the agent** returns RequestID and Status
@@ -301,6 +332,8 @@ After **Send an email (V2)**, add **Post message in a chat or channel** (Microso
 - **The designer tab stays blank** – the classic experience can take a minute to load. Wait, then refresh the tab. Close other Copilot Studio tabs you are not using.
 - **Create item fails with a choice error** – the value does not exactly match the list's choices. Check spelling and capitalization, and that EquipmentType and Office are converted with `Text()`.
 - **Create item fails with access denied** – your account cannot add items to the list. Tell the instructor.
+- **Items you did not create appear, or your items change** – Create item is pointing at another learner's list. Open **Create item** and set **List Name** to your own list.
+- **You cannot create a list** – you are not a member of the site. Tell the instructor.
 - **The agent shows `NS-` with no number** – the message uses an empty variable. Check that the message inserts the Tool node's **RequestID** output.
 - **Two items were created** – the flow is also being called dynamically. Turn off **Allow agent to decide dynamically when to use the tool** (Step 6.1).
 - **No email arrives** – check the junk folder and the run history for the email step. Training mailboxes can take a few minutes.
