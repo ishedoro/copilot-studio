@@ -114,6 +114,8 @@ To see the value, open **Variables** on the topic toolbar and select the **Test*
 
 **Expected result:** The variable is now named `Global.Office`, and the summary message still shows it.
 
+> If the summary formula from Lab 3 now shows a red error underline, open it and change `Topic.Office` to `Global.Office`.
+
 ### Step 3.2 – Ask only when unknown
 
 The office question should be skipped if `Global.Office` already has a value.
@@ -142,18 +144,18 @@ The office question should be skipped if `Global.Office` already has a value.
 4. In **To value**, select the **…** / **Formula** option to open the Power Fx editor and enter:
 
    ```
-   Concatenate(Text(Topic.EquipmentType), " for the ", Global.Office, " office – ", Topic.RequestReason)
+   Concatenate(Text(Topic.EquipmentType), " for the ", Text(Global.Office), " office – ", Topic.RequestReason)
    ```
 
 5. Select **Insert** (or **Done**), then **Save**.
 
 **Expected result:** The node shows no red error underline.
 
-> `Text()` converts the entity value to plain text. You will need the same conversion when you pass it to the agent flow in Lab 5.
+> `Text()` converts the entity and choice values to plain text. You will need the same conversion when you pass it to the agent flow in Lab 5.
 
 ### Step 4.2 – Use it in the message
 
-1. Edit the summary message. Replace the three bullet lines with:
+1. Edit the summary message. Delete the formula from Lab 3 and replace it with:
 
    `Here is your request: ` followed by the **RequestSummary** variable, inserted with **{x}**.
 

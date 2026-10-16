@@ -218,7 +218,7 @@ If **Create item** fails, the agent must say so.
    | Flow input | Value |
    |---|---|
    | EquipmentType | Formula: `Text(Topic.EquipmentType)` |
-   | Office | `Global.Office` |
+   | Office | Formula: `Text(Global.Office)` |
    | Reason | `Topic.RequestReason` |
    | RequesterEmail | The signed-in user's email. Use the **User** system variables if your tenant shows an email field; otherwise type your training email for this lab and note it as a known limitation. |
 
@@ -299,7 +299,7 @@ After **Send an email (V2)**, add **Post message in a chat or channel** (Microso
 
 - **The flow is not listed when adding the tool** – it is not published, or it was created in another environment. Publish it, refresh the agent's tab, and check the environment picker (top right in the classic tab, bottom left in the new experience).
 - **The designer tab stays blank** – the classic experience can take a minute to load. Wait, then refresh the tab. Close other Copilot Studio tabs you are not using.
-- **Create item fails with a choice error** – the value does not exactly match the list's choices. Check spelling and capitalization, and that EquipmentType is converted with `Text()`.
+- **Create item fails with a choice error** – the value does not exactly match the list's choices. Check spelling and capitalization, and that EquipmentType and Office are converted with `Text()`.
 - **Create item fails with access denied** – your account cannot add items to the list. Tell the instructor.
 - **The agent shows `NS-` with no number** – the message uses an empty variable. Check that the message inserts the Tool node's **RequestID** output.
 - **Two items were created** – the flow is also being called dynamically. Turn off **Allow agent to decide dynamically when to use the tool** (Step 6.1).

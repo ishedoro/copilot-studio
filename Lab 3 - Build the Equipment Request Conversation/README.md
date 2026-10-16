@@ -137,15 +137,21 @@ Select **Save**.
 
 ### Step 4.1 – Summary message
 
+The summary is built with a Power Fx formula. `EquipmentType` and `Office` come from multiple-choice questions, so they hold choice values, not plain text. Inserted directly into a message, they do not always show. `Text()` turns them into text.
+
 1. Below the reason question, select **+** → **Send a message**.
-2. Type `Here is your request:` then press **Shift+Enter** for a new line.
-3. Type `- Equipment: ` then select the **{x}** (Insert variable) icon and choose **EquipmentType**.
-4. New line: `- Office: ` then insert **Office**.
-5. New line: `- Reason: ` then insert **RequestReason**.
+2. In the message box, select the **{x}** (Insert variable) icon, then the **Formula** tab.
+3. Enter this formula, then select **Insert**:
 
-**Expected result:** The message shows the three variables as colored tokens, not as typed text.
+   ```
+   Concatenate("Here is your request:", Char(10), "- Equipment: ", Text(Topic.EquipmentType), Char(10), "- Office: ", Text(Topic.Office), Char(10), "- Reason: ", Topic.RequestReason)
+   ```
 
-> If a variable name appears as plain text (for example `{Topic.Office}` in black), it was typed rather than inserted. Delete it and insert it with the **{x}** icon.
+4. Select **Save**.
+
+**Expected result:** The message box shows one formula token (fx) and no red error underline.
+
+> `Char(10)` starts a new line, so each detail shows on its own line in the test pane.
 
 ### Step 4.2 – Confirmation question
 
@@ -278,7 +284,7 @@ Channels such as the demo website and a custom website also depend on the authen
 
 - [ ] Topic **Equipment request** with the description from Step 1.2
 - [ ] Variables `EquipmentType`, `Office`, `RequestReason`, `ConfirmSubmit`
-- [ ] Summary message uses inserted variables
+- [ ] Summary message built with a Power Fx formula
 - [ ] Yes and No endings; no message claims a request ID
 - [ ] Happy path and cancel path tested
 - [ ] Routing table completed; policy questions go to knowledge
@@ -289,7 +295,8 @@ Channels such as the demo website and a custom website also depend on the authen
 
 - **The topic never runs; the agent answers from knowledge instead** – the description is too vague or too close to the knowledge description. Rewrite the first sentence so it clearly says "takes a new equipment request", save, select **New test session** and test again.
 - **The topic runs for policy questions** – add the "does not answer policy questions" sentence to the description.
-- **A variable shows as text in the message** – insert it with the **{x}** icon rather than typing it.
+- **The summary is missing the equipment or office** – the message inserts the variables directly. Replace it with the formula in Step 4.1, which wraps them in `Text()`.
+- **The formula shows an error** – check the quotes are straight double quotes and each variable name starts with `Topic.`.
 - **The conversation stops after the equipment question** – one of the option branches is still on the canvas and the next node was added inside it. Delete the option branches (Step 2.2) and check there is one path from top to bottom.
 - **The Teams change is not visible** – published changes appear in new sessions. In Teams, type `start over`.
 - **Other channels are grayed out** – your tenant does not have the license for them, or the agent uses **Authenticate with Microsoft**. See Step 7.3.
